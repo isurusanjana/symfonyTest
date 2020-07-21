@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <div class='cart-details'>
+    {% if(bookSelected!= null ) %}
+        {% for book in bookSelected %}
+            <div class='item-display'>
+                <div class='item-inner'>
+                    <div class="item-image">
+                        <img src="{{ imagepath ~ book[4] }}" alt="Cover Page" height="100">
+                    </div>
+                    <div class="item-details">
+                        <h3>{{book[1]}}</h3>
+                        <p>{{book[2]}}<p>
+                    </div>
+                    <div class="item-price">
+                        <p>$ {{book[3]}}</p>
+                    </div>
+                    <div class="item-qty">
+                        <p>Qty: {{book[5]}}</p>
+                    </div>
+                    <div class="item-action">
+                        <a href='{{ url('remove_from_cart',{'id' : book[0] })}}'  method='post'>
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p> No data found </p>
+    {% endif %}
+    </div>
+    <div class='checkout-details'>
+        <div class="checkout-inner">
+            <h2>Order Summary</h2>
+            <p>Subtotal ({{itemCount}} items) ${{subTotal}}</p>
+            <p>Discount $ {{discount}}
+            <div>
+                <input type='text' id='coupon' name='coupon' placeholder=''/> 
+                <button 
+            </div>
+            <p>Total $ {{total}}</p>
+
+            <input type="submit" class="go-to-button" value="PROCEED TO CHECKOUT" />
+        </div> 
+    </div>
+</div>
+{% endblock %}

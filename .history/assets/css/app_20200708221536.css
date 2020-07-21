@@ -1,0 +1,46 @@
+body {
+    /* background-color: lightgray; */
+}
+
+.page-cover {
+    width: 20%;
+    float: left;
+}
+
+.page-details{
+    display: inline-block;
+}
+
+.page-details p{
+    margin-top: 0;
+    color: #9e9e9e;
+}
+
+.page-details span{
+    color: #1a9cb7;
+
+}
+
+.go-to-button {
+    background-color: #f57224;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .add-to-button {
+    background-color: #2abbe8; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  .book-area

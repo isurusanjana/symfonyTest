@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <div>
+    <h3>{{ book.name|e }}</h3>
+        <div class="page-cover"><img src="{{ asset('/book_covers/book_cover.jpg') }}" alt="Cover Page" height="150"></div>
+        <div class="page-details">
+            <p>Author: <span>{{ book.author|e }}</span></p>
+            <p>Description: <span>{{ book.description|e }}</span></p>
+            <p>Price: <span>$ {{ book.price|e }}</span></p>
+            <p>Quantity : <input type='number' id='quantity' name='quantity' value='1' /></p>
+        </div>    
+    </div>
+
+        <div>
+            <input type="button" class="go-to-button" value="Go Back" onclick="history.back(-1)"  />
+            <input type="button" class="add-to-button" value="Add to Cart" />            
+            <input type="button" class="go-to-button" value="Add to Cart" href="{{ path('cart') }}">Go to Cart</a>
+        </div>
+</div>
+{% endblock %}

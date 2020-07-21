@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <form action='{{ path('show_books') }}' method='post' > 
+    <div class="custom-select" style="width:200px;">
+        <select id='category' name='category' >
+            <option value=''>Select a category</option>
+            {% for category in categories %}
+            <option value='{{ category.id }}' {{(selected_category == category.id )? 'selected': ''}}>{{ category.name|e }}</option>
+            {% endfor %}
+        </select>
+    </div>
+        <input type="submit" class="go-to-button" value="Show Books" />
+    </form>
+    
+    {% if show_books %}
+    <div class="book-area">
+        {% for book in books %}
+            <div class="book-tab">
+                <a href="{{ path('book',{'id': book.id}) }}" >
+                <img src="{{ imagepath ~ book.cover_image }}" alt="Cover Page" height="70">
+                <p>{{book.name}}</p>
+                </a>
+            </div>
+            
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
+

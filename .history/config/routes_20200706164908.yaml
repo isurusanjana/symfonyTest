@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+api_post_show:
+    path:       /book
+    controller: App\Controller\BookController::index
+    methods:    GET|HEAD

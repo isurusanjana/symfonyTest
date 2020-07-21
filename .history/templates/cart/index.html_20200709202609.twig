@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <div class='cart-details'>
+    {% if(bookSelected!= null ) %}
+        {% for book in bookSelected %}
+            <div class='item-display'>
+                <div class='item-inner'>
+                    <div class="item-image">
+                        <img src="{{ imagepath ~ book[4] }}" alt="Cover Page" height="100">
+                    </div>
+                    <div class="item-details">
+                        <h3>{{book[1]}}</h3>
+                        <p>{{book[2]}}<p>
+                    </div>
+                    <div class="item-price">
+                        <p>$ {{book[3]}}</p>
+                    </div>
+                    <div class="item-qty">
+                        <p>Qty: {{book[5]}}</p>
+                    </div>
+                    <div class="item-action">
+                        <a href='{{ url('remove_from_cart',{'id' : book[0] })}}'  method='post'>
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}            
+    {% else %}
+        <p style='height: 260px;'> No data found </p>
+    {% endif %}
+        <div>
+            <form action='{{ url('home') }}' class='button-cover'> 
+                <input type="submit" class="go-to-back" value="Go to Home"  />
+            </form>
+        </div>
+    </div>
+    <div class='checkout-details'>
+        <div class="checkout-inner">
+            <h2>Order Summary</h2>
+            <p>Subtotal ({{itemCount}} items) ${{(itemCount == 0 ? '0' : total)}}{{subTotal}}</p>
+            <div>
+                {% if app.session.flashBag.has('coupon_error') %}
+                    <div class="alert alert-error">
+                        {% for msg in app.session.flashBag.get('coupon_error') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if app.session.flashBag.has('coupon_success') %}
+                    <div class="alert alert-success">
+                        {% for msg in app.session.flashBag.get('coupon_success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <form action='{{ url('add_coupon') }}' method='post' >
+                    <input type='text' id='coupon' name='coupon' class='coupon-input' placeholder='Coupon Code' required /> 
+                    <input type="submit" class="add-to-button" value="APPLY" {{(itemCount == 0 ? 'disabled' : '')}} /> 
+                </form>
+            </div>
+            <p>Discount $ {{(itemCount == 0 ? '0' : discount)}}</p>
+            <p>Total $ {{(itemCount == 0 ? '0' : total)}}</p>
+
+            <input type="submit" class="go-to-button" value="PROCEED TO CHECKOUT" {{(itemCount == 0 ? 'disabled' : '')}} />
+        </div> 
+    </div>
+</div>
+{% endblock %}

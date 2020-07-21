@@ -1,0 +1,6 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    cache:  false
+    globals:
+        imagepath: "/images/book_covers/"
+        commonimages: "/images/"

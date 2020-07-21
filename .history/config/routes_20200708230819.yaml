@@ -1,0 +1,15 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+book:
+    path: /book/{id}
+    controller: App\Controller\BookController::show
+cart:
+    path: /cart
+    controller: App\Controller\CartController::index
+show_books:
+    path: /show_books
+    controller: App\Controller\HomeController::index
+add_to_cart:
+    path: /add_to_cart/{}
+    controller: App\Controller\CartController::index

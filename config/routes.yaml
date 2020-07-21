@@ -1,0 +1,24 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+home:
+   path: /home
+   controller: App\Controller\HomeController::index
+book:
+    path: /book/{id}
+    controller: App\Controller\BookController::show
+cart:
+    path: /cart
+    controller: App\Controller\CartController::index
+show_books:
+    path: /show_books
+    controller: App\Controller\HomeController::index
+add_to_cart:
+    path: /add_to_cart/{id}
+    controller: App\Controller\BookController::addToCart
+remove_from_cart:
+    path: /remove_from_cart/{id}
+    controller: App\Controller\CartController::removeFromCart
+add_coupon:
+    path: /add_coupon
+    controller: App\Controller\CartController::addCoupon

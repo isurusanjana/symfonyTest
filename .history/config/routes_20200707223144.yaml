@@ -1,0 +1,11 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+book:
+    path:       /book/{cat_id}
+    controller: App\Controller\BookController::show
+    
+#path to jquery ajax
+ajax_books_fetch:
+    path:       /ajax_books_fetch
+    controller: App\Controller\HomeController::getBooks

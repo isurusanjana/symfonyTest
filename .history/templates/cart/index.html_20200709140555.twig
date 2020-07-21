@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <div class='cart-details'>
+        {% for book in bookSelected %}
+            <div>
+                <div class="item-image">
+                    <img src="{{ imagepath ~ book[4] }}" alt="Cover Page" height="70">
+                </div>
+                <div class="item-details">
+                    <h3>{{book[1]}}</h3>
+                    <p>{{book[2]}}<p>
+                </div>
+                <div class="item-price">
+                    {{book[2]}}
+                </div>
+                <div class="item-qty">
+                    <img src="{{ imagepath ~ book[3] }}" alt="Cover Page" height="70">
+                </div>
+                <div class="item-action">
+                    <img src="{{ imagepath ~ book[3] }}" alt="Cover Page" height="70">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class='checkout-details'>
+        Checkout 
+    </div>
+</div>
+{% endblock %}

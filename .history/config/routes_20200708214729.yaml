@@ -1,0 +1,18 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+book:
+    path: /book/{id}
+    controller: App\Controller\BookController::show
+cart:
+    path: /cart
+    controller: App\Controller\CartController::index
+add_cart:
+    path: /view_cart
+    controller: App\Controller\CartController::addToCart
+
+#path to jquery ajax
+ajax_books_fetch:
+    path:       /ajax_books_fetch
+    controller: App\Controller\HomeController::getBooks
+   #  defaults: { _controller: AppBundle:Main:index }

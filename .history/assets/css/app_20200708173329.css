@@ -1,0 +1,14 @@
+body {
+    background-color: lightgray;
+}
+
+.page-cover {
+    width: 20%;
+    float: left;
+}
+
+.page-details{
+    display: inline-block;
+}
+
+page-details
